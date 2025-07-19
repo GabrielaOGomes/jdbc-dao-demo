@@ -1,5 +1,6 @@
 package model.dao;
 
+import model.entities.Department;
 import model.entities.Seller;
 
 import java.util.List;
@@ -14,5 +15,8 @@ public interface SellerDao {
 //    operação para consulta por id
     Seller findById(Integer id);
     List<Seller> findAll();
+    //assinatura do método
+    List<Seller> findByDepartment(Department department);
+
 }
 
