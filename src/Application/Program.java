@@ -9,11 +9,14 @@ import db.DB;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
 
-//INJEÇÃO DE DEPENDENCIAS SEM EXPLICITAR A IMPLEMENTAÇÃO
+        Scanner sc = new Scanner(System.in);
+
+//      INJEÇÃO DE DEPENDENCIAS SEM EXPLICITAR A IMPLEMENTAÇÃO
         SellerDao sellerDao = new DaoFactory().createSellerDao();
 
         System.out.println("=== TEST 1: seller findById ===");
@@ -43,5 +46,13 @@ public class Program {
         seller.setName("Martha Waine");
         sellerDao.update(seller);
         System.out.println("Update completed!");
+
+        System.out.println("\n=== TEST 6: seller delete ===");
+        System.out.println("Enter id for delete test: ");
+        int id = sc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Deleted!");
+
+        sc.close();
     }
 }
